@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="对于非负整数 $ k $ ，定义数列 $ f $ ，满足    f_0=0,f_1=1 \\  f_n=kf_{n-1}+f_{n-2}(n&amp;gt;1) 读入 $ n,k,d,m $ ，求   \sum\_{i=1}^{n}\sum\_{j=1}^{i}[i\perp j](f\_i,f\_{j+d}) \pmod m $1\le n\le 10^6,0\le k,d,m\le 2^{30}$">
+    <meta name="description" content="对于非负整数 $ k $ ，定义数列 $ f $ ，满足    f_0=0,f_1=1 \\  f_n=kf_{n-1}+f_{n-2}(n&amp;gt;1) 读入 $ n,k,d,m $ ，求   \sum _ { i = 1 } ^ { n }  \sum _ { j = 1 } ^ { i } [ i \perp j ] ( f _ i , f _ { j + d } )  \pmod m $1\le">
 <meta name="keywords" content="OI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2021 计蒜之道 精英组 决赛 Day2T2 题解">
 <meta property="og:url" content="http://yoursite.com/2021/06/14/jisuanke-18906-t2/index.html">
 <meta property="og:site_name" content="Isonan&#39;s blog">
-<meta property="og:description" content="对于非负整数 $ k $ ，定义数列 $ f $ ，满足    f_0=0,f_1=1 \\  f_n=kf_{n-1}+f_{n-2}(n&amp;gt;1) 读入 $ n,k,d,m $ ，求   \sum\_{i=1}^{n}\sum\_{j=1}^{i}[i\perp j](f\_i,f\_{j+d}) \pmod m $1\le n\le 10^6,0\le k,d,m\le 2^{30}$">
+<meta property="og:description" content="对于非负整数 $ k $ ，定义数列 $ f $ ，满足    f_0=0,f_1=1 \\  f_n=kf_{n-1}+f_{n-2}(n&amp;gt;1) 读入 $ n,k,d,m $ ，求   \sum _ { i = 1 } ^ { n }  \sum _ { j = 1 } ^ { i } [ i \perp j ] ( f _ i , f _ { j + d } )  \pmod m $1\le">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-06-15T03:16:10.010Z">
+<meta property="og:updated_time" content="2021-06-15T03:17:57.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2021 计蒜之道 精英组 决赛 Day2T2 题解">
-<meta name="twitter:description" content="对于非负整数 $ k $ ，定义数列 $ f $ ，满足    f_0=0,f_1=1 \\  f_n=kf_{n-1}+f_{n-2}(n&amp;gt;1) 读入 $ n,k,d,m $ ，求   \sum\_{i=1}^{n}\sum\_{j=1}^{i}[i\perp j](f\_i,f\_{j+d}) \pmod m $1\le n\le 10^6,0\le k,d,m\le 2^{30}$">
+<meta name="twitter:description" content="对于非负整数 $ k $ ，定义数列 $ f $ ，满足    f_0=0,f_1=1 \\  f_n=kf_{n-1}+f_{n-2}(n&amp;gt;1) 读入 $ n,k,d,m $ ，求   \sum _ { i = 1 } ^ { n }  \sum _ { j = 1 } ^ { i } [ i \perp j ] ( f _ i , f _ { j + d } )  \pmod m $1\le">
 
 
 
@@ -158,7 +158,7 @@
  f_0=0,f_1=1 \\
  f_n=kf_{n-1}+f_{n-2}(n>1)</script><p> 读入 $ n,k,d,m $ ，求</p>
 <script type="math/tex; mode=display">
- \sum\_{i=1}^{n}\sum\_{j=1}^{i}[i\perp j](f\_i,f\_{j+d}) \pmod m</script><p> $1\le n\le 10^6,0\le k,d,m\le 2^{30}$</p>
+ \sum _ { i = 1 } ^ { n }  \sum _ { j = 1 } ^ { i } [ i \perp j ] ( f _ i , f _ { j + d } )  \pmod m</script><p> $1\le n\le 10^6,0\le k,d,m\le 2^{30}$</p>
 </blockquote>
 <a id="more"></a>
 <script type="math/tex; mode=display">
@@ -167,7 +167,7 @@
 <p>首先可以发现对于任意非负整数 $ n,m $ ， $ (f_n,f_m)=f_{(n,m)} $。证明比较平凡，考虑 $ (a,b)=(a+b,b) $ 即可。</p>
 <p>那么令$g=f*\mu$，则有</p>
 <script type="math/tex; mode=display">
-\sum_{i=1}^{n}\sum_{j=1}^{i}\[i\perp j\](f_i,f_{j+d}) \\
+\sum_{i=1}^{n}\sum_{j=1}^{i} [ i\perp j ] (f_i,f_{j+d}) \\
 =\sum_{i=1}^{n}\sum_{j=1}^{i}\[i\perp j\]f_{(i,j+d)} \\
 =\sum_{i=1}^{n}\sum_{j=1}^{i}\[i\perp j\]\sum_{q|i,q|j+d}g_q \\
 =\sum_{q=1}^{n}g_q\sum_{i=1,q|i}^{n}\sum_{j=1}^{i}\[i\perp j\]\[q|j+d\] \\
